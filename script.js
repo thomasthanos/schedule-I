@@ -8,8 +8,8 @@ const categories = [
     {
         name: "Μαριχουάνα",
         drugs: [
-            { name: "Aspen Diamond", materials: ["Green Crack", "Viagra" , "Paracetamol"] },
-            { name: "Hairy Punch", materials: ["meth" , "Mouth Wash" , "Donut" , "Cuke" , "Flu Medicine" , "battery" , "Mega Bean"] }
+            { name: "Aspen Diamond", materials: ["Green Crack", "Viagra", "Paracetamol"] },
+            { name: "Hairy Punch", materials: ["meth", "Mouth Wash", "Donut", "Cuke", "Flu Medicine", "battery", "Mega Bean"] }
         ]
     },
     {
@@ -109,7 +109,6 @@ const detectDevTools = () => {
     const threshold = 200;
     const devToolsOpen = window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold;
 
-    // Ελέγχουμε αν το Firebug ή άλλα εργαλεία είναι ανοιχτά
     const isFirebug = typeof window.console !== "undefined" && window.console.firebug;
     const isDevTools = devToolsOpen || isFirebug || (window.__DEVTOOLS__ !== undefined);
 
