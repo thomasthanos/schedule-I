@@ -5,8 +5,40 @@ body {
     margin: 0;
     display: flex;
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
     user-select: none;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #ff6f61;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
 }
 
 .sidebar {
@@ -17,7 +49,11 @@ body {
     overflow-y: auto;
     border-right: 2px solid #2c3e50;
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease; /* Smooth transition για το sidebar σε κινητά */
+    transition: transform 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
 }
 
 .sidebar h2 {
@@ -62,7 +98,7 @@ body {
     position: relative;
     overflow: hidden;
     background: #2c3e50;
-    -webkit-tap-highlight-color: transparent; /* Αφαίρεση highlight σε touch */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .category li::before {
@@ -99,6 +135,7 @@ body {
     background-position: center;
     position: relative;
     overflow-y: auto;
+    margin-left: 250px;
 }
 
 .main-content::before {
@@ -131,7 +168,7 @@ h1 {
     100% { opacity: 1; transform: translateY(0); }
 }
 
-.placeholder Stuart placeholder {
+.placeholder {
     text-align: center;
     color: #ff9a8b;
     font-size: 1.4rem;
@@ -262,37 +299,24 @@ h1 {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    body {
-        flex-direction: column;
+    .hamburger {
+        display: block;
     }
 
     .sidebar {
-        width: 100%;
-        height: auto;
-        padding: 20px;
-        border-right: none;
-        border-bottom: 2px solid #2c3e50;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        transform: translateX(-100%);
+        width: 80%;
+        max-width: 300px;
     }
 
-    .sidebar h2 {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-    }
-
-    .category h3 {
-        font-size: 1.2rem;
-    }
-
-    .category li {
-        font-size: 1rem;
-        padding: 10px 15px;
+    .sidebar.active {
+        transform: translateX(0);
     }
 
     .main-content {
-        padding: 30px 20px;
+        margin-left: 0;
+        padding: 70px 20px 20px;
         width: 100%;
-        flex: 1;
     }
 
     h1 {
@@ -337,12 +361,12 @@ h1 {
     }
 
     .category li {
-        font-size: 0.9rem;
-        padding: 8px 12px;
+        font-size: 1rem;
+        padding: 10px 15px;
     }
 
     .main-content {
-        padding: 20px 15px;
+        padding: 60px 15px 15px;
     }
 
     h1 {
@@ -392,12 +416,12 @@ h1 {
     }
 
     .category li {
-        font-size: 0.85rem;
-        padding: 6px 10px;
+        font-size: 0.9rem;
+        padding: 8px 12px;
     }
 
     .main-content {
-        padding: 15px 10px;
+        padding: 50px 10px 10px;
     }
 
     h1 {

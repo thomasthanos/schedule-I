@@ -72,7 +72,20 @@ function selectDrug(categoryName, drugIndex) {
     selectedDrug = { category: categoryName, drugIndex: drugIndex };
     renderMenu();
     renderMaterials();
+    // Κλείνουμε το sidebar σε κινητά μετά την επιλογή
+    if (window.innerWidth <= 1024) {
+        document.getElementById("sidebar").classList.remove("active");
+        document.getElementById("hamburgerMenu").classList.remove("active");
+    }
 }
+
+// Hamburger Menu Toggle
+document.getElementById("hamburgerMenu").addEventListener("click", () => {
+    const sidebar = document.getElementById("sidebar");
+    const hamburger = document.getElementById("hamburgerMenu");
+    sidebar.classList.toggle("active");
+    hamburger.classList.toggle("active");
+});
 
 // Απενεργοποίηση δεξιού κλικ σε όλη τη σελίδα
 document.addEventListener("contextmenu", (e) => {
