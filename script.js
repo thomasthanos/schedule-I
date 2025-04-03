@@ -46,6 +46,11 @@ function renderMenu() {
 function renderMaterials() {
     const section = document.getElementById("materialsSection");
     const title = document.getElementById("selectedDrugName");
+    
+    // Προσθέτουμε κλάση για το transition
+    title.classList.remove("fade-in");
+    section.classList.remove("fade-in");
+    
     if (!selectedDrug) {
         title.textContent = "ΕΠΙΛΕΞΕ ΕΝΑ ΝΑΡΚΩΤΙΚΟ";
         section.innerHTML = `
@@ -54,18 +59,24 @@ function renderMaterials() {
                 <p>Επίλεξε ένα ναρκωτικό από το μενού για να δεις τα υλικά.</p>
             </div>
         `;
-        return;
+    } else {
+        const category = categories.find(cat => cat.name === selectedDrug.category);
+        const drug = category.drugs[selectedDrug.drugIndex];
+        title.textContent = drug.name;
+        section.innerHTML = `
+            <ul class="material-list">
+                ${drug.materials.map(material => `
+                    <li>${material}</li>
+                `).join("")}
+            </ul>
+        `;
     }
-    const category = categories.find(cat => cat.name === selectedDrug.category);
-    const drug = category.drugs[selectedDrug.drugIndex];
-    title.textContent = drug.name;
-    section.innerHTML = `
-        <ul class="material-list">
-            ${drug.materials.map(material => `
-                <li>${material}</li>
-            `).join("")}
-        </ul>
-    `;
+    
+    // Ενεργοποιούμε το transition
+    void title.offsetWidth; // Trigger reflow για να ξαναρχίσει το animation
+    void section.offsetWidth; // Trigger reflow για να ξαναρχίσει το animation
+    title.classList.add("fade-in");
+    section.classList.add("fade-in");
 }
 
 function selectDrug(categoryName, drugIndex) {

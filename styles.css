@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Special Elite', sans-serif; /* Χρησιμοποιούμε το Special Elite για πιο καθαρό αλλά gritty στυλ */
-    background: linear-gradient(135deg, #0f1419, #1a2526);
+    background: linear-gradient(135deg, #0a0d11, #151a1c); /* Σκουρύνουμε το background για πιο σκοτεινή ατμόσφαιρα */
     color: #e0e0e0;
     margin: 0;
     display: flex;
@@ -76,9 +76,9 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.5); /* Blood texture effect */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal; /* Επιτρέπουμε το wrapping του κειμένου */
+    overflow: visible; /* Αφαιρούμε το overflow: hidden */
+    text-overflow: clip; /* Αφαιρούμε το ellipsis */
 }
 
 .category {
@@ -112,6 +112,7 @@ body {
     position: relative;
     overflow: hidden;
     background: #2c3e50;
+    border: 1px solid rgba(255, 0, 0, 0.3); /* Προσθέτουμε κόκκινο border για blood texture */
     -webkit-tap-highlight-color: transparent;
     text-shadow: 0 0 3px rgba(255, 0, 0, 0.3); /* Blood texture effect */
 }
@@ -136,6 +137,22 @@ body {
     color: #fff;
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(255, 111, 97, 0.7);
+    animation: shake 0.5s; /* Προσθέτουμε το shake animation στο hover */
+}
+
+/* Shake Animation */
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
 .main-content {
@@ -176,11 +193,22 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.5); /* Blood texture effect */
-    animation: fadeIn 1.8s ease-in-out;
+    opacity: 0; /* Αρχική κατάσταση για το transition */
+    animation: fadeIn 1.8s ease-in-out forwards; /* Προσθέτουμε το animation */
 }
 
 @keyframes fadeIn {
     0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade-in transition για το h1 και τη λίστα υλικών */
+.fade-in {
+    animation: fadeInContent 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInContent {
+    0% { opacity: 0; transform: translateY(10px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
@@ -222,6 +250,7 @@ h1 {
     overflow: hidden;
     text-align: center;
     pointer-events: none;
+    opacity: 0; /* Αρχική κατάσταση για το transition */
 }
 
 .materials-section::before {
@@ -328,8 +357,8 @@ h1 {
 
     .sidebar {
         transform: translateX(-100%);
-        width: 80%;
-        max-width: 350px;
+        width: 70%; /* Μειώνουμε το width για καλύτερη εμφάνιση σε κινητά */
+        max-width: 300px;
     }
 
     .sidebar.active {
@@ -350,7 +379,7 @@ h1 {
     .materials-section {
         padding: 25px;
         max-width: 100%;
-        width: 100%;
+        width: 80%; /* Μειώνουμε το width για καλύτερη εμφάνιση σε κινητά */
     }
 
     .material-list li {
@@ -371,20 +400,22 @@ h1 {
 @media (max-width: 768px) {
     .sidebar {
         padding: 15px;
+        width: 60%; /* Ακόμα μικρότερο width για μικρότερες οθόνες */
+        max-width: 250px;
     }
 
     .sidebar h2 {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* Μικρότερο μέγεθος για να χωράει */
         margin-bottom: 20px;
     }
 
     .category h3 {
-        font-size: 1.3rem;
+        font-size: 1.5rem; /* Μεγαλύτερα γράμματα */
         margin-bottom: 10px;
     }
 
     .category li {
-        font-size: 1.1rem;
+        font-size: 1.3rem; /* Μεγαλύτερα γράμματα */
         padding: 10px 15px;
     }
 
@@ -393,23 +424,23 @@ h1 {
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 2.2rem; /* Μεγαλύτερα γράμματα */
         margin-bottom: 20px;
     }
 
     .materials-section {
-        padding: 20px 30px;
-        width: 85%;
-        max-width: 350px;
+        padding: 20px 25px;
+        width: 75%; /* Ακόμα μικρότερο width */
+        max-width: 300px;
     }
 
     .material-list li {
-        font-size: 1rem;
+        font-size: 1.2rem; /* Μεγαλύτερα γράμματα */
         padding: 10px 15px;
     }
 
     .placeholder {
-        font-size: 1.1rem;
+        font-size: 1.3rem; /* Μεγαλύτερα γράμματα */
     }
 
     .placeholder-icon {
@@ -429,19 +460,21 @@ h1 {
 @media (max-width: 480px) {
     .sidebar {
         padding: 10px;
+        width: 55%; /* Ακόμα μικρότερο width */
+        max-width: 220px;
     }
 
     .sidebar h2 {
-        font-size: 1.6rem;
+        font-size: 1.6rem; /* Μικρότερο μέγεθος για να χωράει */
         margin-bottom: 15px;
     }
 
     .category h3 {
-        font-size: 1.2rem;
+        font-size: 1.4rem; /* Μεγαλύτερα γράμματα */
     }
 
     .category li {
-        font-size: 1rem;
+        font-size: 1.2rem; /* Μεγαλύτερα γράμματα */
         padding: 8px 12px;
     }
 
@@ -450,23 +483,23 @@ h1 {
     }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 2rem; /* Μεγαλύτερα γράμματα */
         margin-bottom: 15px;
     }
 
     .materials-section {
-        padding: 15px 25px;
-        width: 80%;
-        max-width: 300px;
+        padding: 15px 20px;
+        width: 70%; /* Ακόμα μικρότερο width */
+        max-width: 280px;
     }
 
     .material-list li {
-        font-size: 0.9rem;
+        font-size: 1.1rem; /* Μεγαλύτερα γράμματα */
         padding: 8px 12px;
     }
 
     .placeholder {
-        font-size: 1rem;
+        font-size: 1.2rem; /* Μεγαλύτερα γράμματα */
     }
 
     .placeholder-icon {
@@ -479,6 +512,6 @@ h1 {
     }
 
     .intruder-content p {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 }
