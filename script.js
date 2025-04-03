@@ -3,7 +3,7 @@ const categories = [
         name: "Meth",
         drugs: [
             { name: "Shiny Crack", materials: ["Mouth Wash", "Donut", "Cuke", "Flu Medicine", "Battery", "Mega Bean", "Horse Semen"] },
-            { name: "Hairy Punch", materials: ["meth", "Mouth Wash", "Donut", "Cuke", "Flu Medicine", "battery", "Mega Bean"] }
+            { name: "Hairy Punch", materials: ["Mouth Wash", "Donut", "Cuke", "Flu Medicine", "battery", "Mega Bean"] }
         ]
     },
     {
