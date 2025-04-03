@@ -74,37 +74,65 @@ function selectDrug(categoryName, drugIndex) {
     renderMaterials();
 }
 
-// Απενεργοποίηση δεξιού κλικ και άλλων ενεργειών
-document.addEventListener("DOMContentLoaded", () => {
-    const materialsSection = document.getElementById("materialsSection");
-    
-    // Απενεργοποίηση δεξιού κλικ
-    materialsSection.oncontextmenu = (e) => {
-        e.preventDefault();
-        return false;
-    };
-
-    // Αποτροπή επιλογής κειμένου
-    materialsSection.onselectstart = (e) => {
-        e.preventDefault();
-        return false;
-    };
-
-    // Αποτροπή drag
-    materialsSection.ondragstart = (e) => {
-        e.preventDefault();
-        return false;
-    };
-
-    // Ανίχνευση DevTools (όχι 100% αξιόπιστο, αλλά δυσκολεύει)
-    const devtoolsDetector = () => {
-        const threshold = 160;
-        if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
-            document.body.innerHTML = "<h1>DevTools detected! Access denied.</h1>";
-        }
-    };
-    setInterval(devtoolsDetector, 1000);
+// Απενεργοποίηση δεξιού κλικ σε όλη τη σελίδα
+document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    return false;
 });
+
+// Αποτροπή drag και επιλογής κειμένου
+document.addEventListener("dragstart", (e) => {
+    e.preventDefault();
+    return false;
+});
+
+document.addEventListener("selectstart", (e) => {
+    e.preventDefault();
+    return false;
+});
+
+// Απενεργοποίηση συντομεύσεων για DevTools (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+document.addEventListener("keydown", (e) => {
+    if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
+        (e.ctrlKey && e.key === "U")
+    ) {
+        e.preventDefault();
+        showIntruderAlert();
+        return false;
+    }
+});
+
+// Ενισχυμένη ανίχνευση DevTools
+const detectDevTools = () => {
+    const threshold = 200;
+    const devToolsOpen = window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold;
+
+    // Ελέγχουμε αν το Firebug ή άλλα εργαλεία είναι ανοιχτά
+    const isFirebug = typeof window.console !== "undefined" && window.console.firebug;
+    const isDevTools = devToolsOpen || isFirebug || (window.__DEVTOOLS__ !== undefined);
+
+    if (isDevTools) {
+        showIntruderAlert();
+    }
+};
+
+// Εμφάνιση του Intruder Alert
+const showIntruderAlert = () => {
+    document.body.innerHTML = `
+        <div class="intruder-container">
+            <div class="intruder-content">
+                <h1>INTRUDER ALERT!</h1>
+                <p>Nice try, but this vault is locked tighter than a dealer's stash.</p>
+                <p>Close the DevTools to proceed, or enjoy the glitch show!</p>
+            </div>
+        </div>
+    `;
+};
+
+// Εκτέλεση ανίχνευσης κάθε 500ms
+setInterval(detectDevTools, 500);
 
 // Initial render
 renderMenu();
