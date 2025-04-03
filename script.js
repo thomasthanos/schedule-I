@@ -2,15 +2,14 @@ const categories = [
     {
         name: "Meth",
         drugs: [
-            { name: "Shiny Crack", materials: ["Mouth Wash", "Donut", "Cuke", "Flu Medicine", "Battery", "Mega Bean", "Horse Semen"] },
-            { name: "Hairy Punch", materials: ["Mouth Wash", "Donut", "Cuke", "Flu Medicine", "battery", "Mega Bean"] }
+            { name: "Shiny Crack", materials: ["meth" , "Mouth Wash", "Donut", "Cuke", "Flu Medicine", "Battery", "Mega Bean", "Horse Semen"] },
+            { name: "Hairy Punch", materials: ["meth" , "Mouth Wash", "Donut", "Cuke", "Flu Medicine", "battery", "Mega Bean"] }
         ]
     },
     {
         name: "Μαριχουάνα",
         drugs: [
             { name: "Aspen Diamond", materials: ["Green Crack", "Viagra", "Paracetamol"] }
-
         ]
     },
     {
@@ -66,8 +65,8 @@ function renderMaterials() {
         title.textContent = drug.name;
         section.innerHTML = `
             <ul class="material-list">
-                ${drug.materials.map(material => `
-                    <li>${material}</li>
+                ${drug.materials.map((material, index) => `
+                    <li>${index === 0 ? "- " + material : material}</li>
                 `).join("")}
             </ul>
         `;
