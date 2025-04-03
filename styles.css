@@ -1,0 +1,176 @@
+body {
+    font-family: sans-serif;
+    background: linear-gradient(135deg, #0f1419, #1a2526);
+    color: #e0e0e0;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 220px;
+    background: #1a2526;
+    padding: 30px 20px;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid #2c3e50;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar h2 {
+    color: #1abc9c;
+    text-align: left;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #1abc9c, #16a085);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.category {
+    margin-bottom: 20px;
+}
+
+.category h3 {
+    color: #b0bec5;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.category li {
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    color: #b0bec5;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.category li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(26, 188, 156, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.category li:hover::before, .category li.active::before {
+    left: 100%;
+}
+
+.category li:hover, .category li.active {
+    background: #1abc9c;
+    color: #fff;
+    transform: translateX(5px);
+    box-shadow: 0 0 10px rgba(26, 188, 156, 0.5);
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    background: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow-y: auto;
+}
+
+.main-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(26, 188, 156, 0.1), transparent);
+    pointer-events: none;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #1abc9c, #16a085);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(26, 188, 156, 0.3);
+}
+
+.materials-section {
+    background: #34495e;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 350px; /* Μειωμένο width */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid #1abc9c;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    pointer-events: none; /* Απενεργοποίηση αλληλεπίδρασης */
+    user-select: none; /* Αποτροπή επιλογής κειμένου */
+}
+
+.materials-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(26, 188, 156, 0.1), transparent);
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+.material-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.material-list li {
+    padding: 12px 15px;
+    background: #3e5a6e;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    pointer-events: none; /* Απενεργοποίηση αλληλεπίδρασης */
+    user-select: none; /* Αποτροπή επιλογής κειμένου */
+}
+
+.material-list li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(26, 188, 156, 0.2), transparent);
+    transition: left 0.5s ease;
+}
