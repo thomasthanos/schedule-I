@@ -47,8 +47,13 @@ function renderMaterials() {
     const section = document.getElementById("materialsSection");
     const title = document.getElementById("selectedDrugName");
     if (!selectedDrug) {
-        title.textContent = "Επίλεξε ένα ναρκωτικό";
-        section.innerHTML = "";
+        title.textContent = "ΕΠΙΛΕΞΕ ΕΝΑ ΝΑΡΚΩΤΙΚΟ";
+        section.innerHTML = `
+            <div class="placeholder">
+                <div class="placeholder-icon"></div>
+                <p>Επίλεξε ένα ναρκωτικό από το μενού για να δεις τα υλικά.</p>
+            </div>
+        `;
         return;
     }
     const category = categories.find(cat => cat.name === selectedDrug.category);

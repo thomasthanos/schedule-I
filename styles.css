@@ -91,6 +91,10 @@ body {
     align-items: center;
     position: relative;
     overflow-y: auto;
+    /* Προσθήκη background image ή gradient */
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.8), rgba(26, 37, 38, 0.8)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
 }
 
 .main-content::before {
@@ -107,14 +111,62 @@ body {
 h1 {
     color: #fff;
     margin-bottom: 40px;
-    font-size: 2rem;
+    font-size: 2.5rem; /* Μεγαλύτερο μέγεθος */
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     background: linear-gradient(90deg, #1abc9c, #16a085);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 10px rgba(26, 188, 156, 0.3);
+    text-shadow: 0 0 15px rgba(26, 188, 156, 0.5); /* Ενισχυμένη σκιά */
+    animation: fadeIn 1.5s ease-in-out; /* Animation για fade-in */
+}
+
+/* Animation για το κείμενο */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Placeholder για την αρχική οθόνη */
+.placeholder {
+    text-align: center;
+    color: #b0bec5;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.placeholder-icon {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    background: url('https://img.icons8.com/ios-filled/100/1abc9c/leaf.png') no-repeat center;
+    background-size: contain;
+    opacity: 0.7;
+    animation: pulse 3s infinite ease-in-out;
+}
+
+/* Animation για το εικονίδιο */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
 }
 
 .materials-section {
@@ -122,14 +174,14 @@ h1 {
     padding: 25px;
     border-radius: 12px;
     width: 90%;
-    max-width: 350px; /* Μειωμένο width */
+    max-width: 350px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     border: 1px solid #1abc9c;
     position: relative;
     overflow: hidden;
     text-align: center;
-    pointer-events: none; /* Απενεργοποίηση αλληλεπίδρασης */
-    user-select: none; /* Αποτροπή επιλογής κειμένου */
+    pointer-events: none;
+    user-select: none;
 }
 
 .materials-section::before {
@@ -160,8 +212,8 @@ h1 {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    pointer-events: none; /* Απενεργοποίηση αλληλεπίδρασης */
-    user-select: none; /* Αποτροπή επιλογής κειμένου */
+    pointer-events: none;
+    user-select: none;
 }
 
 .material-list li::before {
