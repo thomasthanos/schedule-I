@@ -9,7 +9,8 @@ const categories = [
     {
         name: "Μαριχουάνα",
         drugs: [
-            { name: "Aspen Diamond", materials: ["Green Crack", "Viagra", "Paracetamol"] }
+            { name: "Aspen Diamond", materials: ["Green Crack", "Viagra", "Paracetamol"] },
+            { name: "Aspen Death", materials: ["OG KUSH" , "Paracetamol"] }
         ]
     },
     {
