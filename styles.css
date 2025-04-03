@@ -1,8 +1,11 @@
-/* Εισαγωγή του font "Bebas Neue" για underground-cocaine αισθητική */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+/* Εισαγωγή του font "Special Elite" για πιο καθαρή αλλά underground αισθητική */
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+/* Εναλλακτικά, αν θέλεις κάτι πιο bold και street-style, μπορείς να χρησιμοποιήσεις το "Bangers" */
+/* @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap'); */
 
 body {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Special Elite', sans-serif; /* Χρησιμοποιούμε το Special Elite για πιο καθαρό αλλά gritty στυλ */
     background: linear-gradient(135deg, #0f1419, #1a2526);
     color: #e0e0e0;
     margin: 0;
@@ -10,7 +13,7 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     user-select: none;
-    letter-spacing: 1px;
+    letter-spacing: 1px; /* Μειώνουμε ελαφρώς το letter-spacing για καλύτερη αναγνωσιμότητα */
 }
 
 /* Hamburger Menu */
@@ -46,7 +49,7 @@ body {
 }
 
 .sidebar {
-    width: 300px; /* Αύξηση του πλάτους για να χωράει το κείμενο */
+    width: 300px;
     background: #1a2526;
     padding: 40px 20px;
     height: 100vh;
@@ -61,20 +64,21 @@ body {
 }
 
 .sidebar h2 {
+    font-family: 'Special Elite', sans-serif; /* Εξασφαλίζουμε ότι το font εφαρμόζεται */
     color: #ff6f61;
     text-align: center;
     margin-bottom: 50px;
-    font-size: 2rem; /* Μείωση του font-size για να χωράει καλύτερα */
+    font-size: 2rem;
     font-weight: 900;
     letter-spacing: 4px;
     text-transform: uppercase;
     background: linear-gradient(90deg, #ff6f61, #d13f3a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
-    white-space: nowrap; /* Αποτροπή σπασίματος του κειμένου */
-    overflow: hidden; /* Αποτροπή υπερχείλισης */
-    text-overflow: ellipsis; /* Προσθήκη αποσιωπητικών αν το κείμενο είναι πολύ μεγάλο */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.5); /* Blood texture effect */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .category {
@@ -82,11 +86,13 @@ body {
 }
 
 .category h3 {
+    font-family: 'Special Elite', sans-serif; /* Εξασφαλίζουμε ότι το font εφαρμόζεται */
     color: #ff9a8b;
     font-size: 1.5rem;
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Blood texture effect */
 }
 
 .category ul {
@@ -95,6 +101,7 @@ body {
 }
 
 .category li {
+    font-family: 'Special Elite', sans-serif; /* Εξασφαλίζουμε ότι το font εφαρμόζεται */
     padding: 12px 20px;
     margin-bottom: 10px;
     color: #e0e0e0;
@@ -106,6 +113,7 @@ body {
     overflow: hidden;
     background: #2c3e50;
     -webkit-tap-highlight-color: transparent;
+    text-shadow: 0 0 3px rgba(255, 0, 0, 0.3); /* Blood texture effect */
 }
 
 .category li::before {
@@ -142,7 +150,7 @@ body {
     background-position: center;
     position: relative;
     overflow-y: auto;
-    margin-left: 300px; /* Προσαρμογή του margin-left λόγω του νέου πλάτους του sidebar */
+    margin-left: 300px;
 }
 
 .main-content::before {
@@ -157,6 +165,7 @@ body {
 }
 
 h1 {
+    font-family: 'Special Elite', sans-serif; /* Εξασφαλίζουμε ότι το font εφαρμόζεται */
     color: #fff;
     margin-bottom: 50px;
     font-size: 3.5rem;
@@ -166,7 +175,7 @@ h1 {
     background: linear-gradient(90deg, #ff6f61, #d13f3a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 20px rgba(255, 111, 97, 0.7);
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.5); /* Blood texture effect */
     animation: fadeIn 1.8s ease-in-out;
 }
 
@@ -176,11 +185,13 @@ h1 {
 }
 
 .placeholder {
+    font-family: 'Special Elite', sans-serif; /* Εξασφαλίζουμε ότι το font εφαρμόζεται */
     text-align: center;
     color: #ff9a8b;
     font-size: 1.6rem;
     margin-top: 30px;
     animation: fadeIn 2s ease-in-out;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Blood texture effect */
 }
 
 .placeholder-icon {
@@ -232,6 +243,7 @@ h1 {
 }
 
 .material-list li {
+    font-family: 'Special Elite', sans-serif; /* Εξασφαλίζουμε ότι το font εφαρμόζεται */
     padding: 15px 20px;
     background: #3e5a6e;
     margin-bottom: 12px;
@@ -242,6 +254,7 @@ h1 {
     position: relative;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(255, 111, 97, 0.2);
+    text-shadow: 0 0 3px rgba(255, 0, 0, 0.3); /* Blood texture effect */
 }
 
 .material-list li::before {
@@ -273,11 +286,12 @@ h1 {
 .intruder-content {
     text-align: center;
     color: #ff6f61;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Special Elite', sans-serif; /* Εξασφαλίζουμε ότι το font εφαρμόζεται */
     animation: glitch 1s infinite;
 }
 
 .intruder-content h1 {
+    font-family: 'Special Elite', sans-serif; /* Εξασφαλίζουμε ότι το font εφαρμόζεται */
     font-size: 4rem;
     font-weight: 900;
     text-transform: uppercase;
@@ -286,13 +300,15 @@ h1 {
     background: linear-gradient(90deg, #ff6f61, #d13f3a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 20px rgba(255, 111, 97, 0.7);
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.5); /* Blood texture effect */
 }
 
 .intruder-content p {
+    font-family: 'Special Elite', sans-serif; /* Εξασφαλίζουμε ότι το font εφαρμόζεται */
     font-size: 1.5rem;
     opacity: 0.9;
     margin: 10px 0;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Blood texture effect */
 }
 
 @keyframes glitch {
@@ -313,7 +329,7 @@ h1 {
     .sidebar {
         transform: translateX(-100%);
         width: 80%;
-        max-width: 350px; /* Αύξηση του πλάτους και για το mobile */
+        max-width: 350px;
     }
 
     .sidebar.active {
