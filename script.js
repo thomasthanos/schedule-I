@@ -8,8 +8,8 @@ const categories = [
     {
         name: "Μαριχουάνα",
         drugs: [
-            { name: "Marijuana", materials: ["Cannabis Plant", "THC Extract"] },
-            { name: "Psilocybin", materials: ["Psilocybe Mushrooms"] }
+            { name: "Aspen Diamond", materials: ["Green Crack", "Viagra" , "Paracetamol"] },
+            { name: "Hairy Punch", materials: ["meth" , "Mouth Wash" , "Donut" , "Cuke" , "Flu Medicine" , "battery" , "Mega Bean"] }
         ]
     },
     {
